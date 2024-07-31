@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import SaveIcon from '@mui/icons-material/Save';
+import './Note.css';
 
-function Note({ id, title, content, onDelete = () => {}, onEdit = () => {} }) {
+function Note({ id, title, content, onDelete, onEdit }) {
   const [isEditing, setIsEditing] = useState(false);
   const [editedTitle, setEditedTitle] = useState(title);
   const [editedContent, setEditedContent] = useState(content);
@@ -17,28 +18,25 @@ function Note({ id, title, content, onDelete = () => {}, onEdit = () => {} }) {
     setIsEditing(false);
   };
 
-  //const handleTitleChange = (event) => setEditedTitle(event.target.value);
+  const handleTitleChange = (event) => setEditedTitle(event.target.value);
 
   const handleContentChange = (event) => setEditedContent(event.target.value);
 
   return (
-    <div className="note">
+    <div className={`note ${isEditing ? 'adding' : ''}`}>
       {isEditing ? (
         <div className="note-edit">
-        
-          <textarea
-            value={editedContent}
-            onChange={handleContentChange}
-            placeholder="Edit content"
-            aria-label="Edit content"
-          />
+          <input value={editedTitle} onChange={handleTitleChange} placeholder="Edit Note" />
+          {/* <textarea value={editedContent} onChange={handleContentChange} placeholder="Edit content" /> */}
           <button onClick={handleSaveClick} aria-label="Save">
             <SaveIcon />
           </button>
         </div>
       ) : (
         <div className="note-view">
-          <h1>{title}</h1>
+          <div className="note-header">
+            <h1>{title}</h1>
+          </div>
           <p>{content}</p>
           <div className="note-footer">
             <button onClick={handleEditClick} aria-label="Edit">

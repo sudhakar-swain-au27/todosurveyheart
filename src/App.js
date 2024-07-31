@@ -20,15 +20,18 @@ function App() {
   }, [status, dispatch]);
 
   const handleAddNote = (newNote) => {
-    dispatch(addTodo(newNote));
+    dispatch(addTodo({
+      id: todos.length ? todos[0].id + 1 : 1, 
+      todo: newNote.title,
+    }));
   };
 
   const handleDeleteNote = (id) => {
     dispatch(deleteTodo(id));
   };
 
-  const handleEditNote = (id, title, content) => {
-    dispatch(updateTodo({ id, title, content }));
+  const handleEditNote = (id, title) => {
+    dispatch(updateTodo({ id, todo: title }));
   };
 
   if (status === 'loading') {
@@ -47,8 +50,7 @@ function App() {
         <Note
           key={todo.id}
           id={todo.id}
-          title={todo.todo} // Assuming the API uses `todo` for title
-          content={todo.content || ''} // Assuming there might not be content
+          title={todo.todo}
           onDelete={handleDeleteNote}
           onEdit={handleEditNote}
         />

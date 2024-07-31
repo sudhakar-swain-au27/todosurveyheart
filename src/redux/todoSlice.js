@@ -1,18 +1,15 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+
 const initialState = {
   todos: [],
   status: 'idle',
   error: null,
 };
+
 export const fetchTodos = createAsyncThunk('todos/fetchTodos', async () => {
-  try {
-    const response = await axios.get('https://dummyjson.com/todos');
-    return response.data.todos;
-  } catch (error) {
-    console.error('Error fetching todos:', error);
-    throw error;
-  }
+  const response = await axios.get('https://dummyjson.com/todos');
+  return response.data.todos;
 });
 
 const todosSlice = createSlice({
@@ -20,7 +17,7 @@ const todosSlice = createSlice({
   initialState,
   reducers: {
     addTodo: (state, action) => {
-      state.todos.push(action.payload);
+      state.todos.unshift(action.payload);
     },
     deleteTodo: (state, action) => {
       state.todos = state.todos.filter(todo => todo.id !== action.payload);

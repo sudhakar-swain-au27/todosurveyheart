@@ -1,0 +1,57 @@
+.note {
+    border: 1px solid #5e54a6; 
+    border-radius: 8px;          
+    padding: 16px; 
+    margin: 16px 0; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+    background-color: #fff;
+    max-width: 600px;
+    margin-left: 30%;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif; 
+}
+
+.note-header {
+    display: flex;
+    align-items: center;
+}
+
+.note-header h1 {
+    font-size: 1.2em;
+    margin-left: 10px;
+}
+
+.note p {
+    font-size: 1.1em;
+    margin-bottom: 12px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.note button {
+    position: relative;
+    float: right;
+    margin-right: 10px;
+    color: #f5ba13;
+    border: none;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    outline: none;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.note.adding {
+    animation: slideIn 0.3s ease;
+}

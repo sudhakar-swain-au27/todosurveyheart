@@ -1,21 +1,21 @@
 footer {
-    background-color: #000; /* Black background color */
-    color: #120808; /* White text color */
-    text-align: center; /* Center text horizontally */
+    background-color: #c8cbdb;
+    color: #1946d9;
+    text-align: center;
     width: 100%;
     height: 2.5rem;
     display: flex;
-    align-items: center; /* Center text vertically */
-    justify-content: center; /* Center text horizontally */
-    position: fixed; /* Fixed position to stay at the bottom */
+    align-items: center;
+    justify-content: center;
+    position: fixed; 
     bottom: 0;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow for visual separation */
+    box-shadow: 0 -2px 4px rgba(228, 12, 12, 0.1);
 }
 
 footer p {
-    margin: 0; /* Remove default margin */
-    font-size: 0.9rem; /* Adjust font size if needed */
+    margin: 0;
+    font-size: 0.9rem;
     display: flex;
-    align-items: center; /* Center items vertically */
-    gap: 0.5rem; /* Space between icon and text */
+    align-items: center; 
+    gap: 0.5rem;
 }
