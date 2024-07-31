@@ -1,0 +1,221 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%; 
+}
+
+body {
+    display: flex;
+    flex-direction: column; /* Arrange header, main content, and footer vertically */
+    background: #eee;
+    background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+    padding: 0 16px;
+}
+
+main {
+    flex: 1; 
+}
+header {
+    background-color: #131bba;
+    margin: auto -16px;
+    padding: 16px 32px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+}
+
+header h1 {
+    color: #fff;
+    font-family: "McLaren", cursive;
+    font-weight: 200;
+}
+
+/* Footer styles */
+footer {
+    text-align: center;
+    width: 100%;
+    height: 2.5rem;
+    background-color: #4920c6; 
+    color: #ccc; 
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); 
+    position: relative; 
+    bottom: 0;
+}
+.notes-container {
+    display: flex;
+    flex-direction: column-reverse; 
+    gap: 30px; 
+    margin: 0 auto;
+    overflow: auto; 
+    padding: 20px 0;
+    max-height: calc(100vh - 120px); 
+    position: relative;
+}
+.note {
+    border: 1px solid #5e54a6; 
+    border-radius: 8px; /* Rounded corners */
+    padding: 16px; /* Padding inside the note */
+    margin: 16px 0; /* Vertical margin to separate notes */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Light shadow for better visibility */
+    background-color: #fff; /* White background for notes */
+    max-width: 600px; /* Maximum width of the note */
+    margin-left: 30%;
+    width: 100%; /* Full width within container */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    font-family: "Montserrat", sans-serif; /* Match font with create-note */
+}
+
+.note-header {
+    display: flex;
+    align-items: center;
+}
+
+.note-header h1 {
+    font-size: 1.2em; /* Match font size with create-note */
+    margin-left: 10px;
+}
+
+.note p {
+    font-size: 1.1em; /* Match font size with create-note */
+    margin-bottom: 12px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+.note button {
+    position: relative;
+    float: right;
+    margin-right: 10px;
+    color: #f5ba13;
+    border: none;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    outline: none;
+}
+
+/* Create Note Form styles */
+form.create-note {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    margin: 30px auto;
+    background: #fff;
+    padding: 15px;
+    border-radius: 7px;
+    box-shadow: 0 1px 5px rgb(138, 137, 137);
+}
+
+form.create-note input,
+form.create-note textarea {
+    width: 100%;
+    border: none;
+    padding: 4px;
+    outline: none;
+    font-size: 1.2em; /* Ensure font size matches */
+    font-family: "Montserrat", sans-serif; /* Match font family */
+    resize: none;
+}
+
+form.create-note button {
+    position: absolute;
+    right: 18px;
+    bottom: -18px;
+    background: #f5ba13;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    outline: none;
+}
+
+/* Code block styling */
+pre, code {
+    display: block; /* Make code blocks block-level elements */
+    width: 100%; /* Full width for block-level */
+    overflow-x: auto; /* Allow horizontal scrolling if needed */
+    background-color: #f5f5f5; /* Background color for better visibility */
+    padding: 10px; /* Padding inside the code block */
+    border-radius: 4px; /* Rounded corners */
+    font-family: "Courier New", Courier, monospace; /* Monospaced font for code */
+    font-size: 1em; /* Font size for code */
+    text-align: center; /* Center the text inside the code block */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Light shadow for better visibility */
+    margin: 16px 0; /* Vertical margin for separation */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    header,
+    form.create-note {
+        padding: 16px;
+    }
+
+    form.create-note {
+        margin: 20px auto;
+    }
+
+    .note {
+        max-width: 100%; /* Full width for smaller screens */
+        padding: 10px;
+    }
+
+    .note-header h1 {
+        font-size: 1em; /* Adjust for smaller screens */
+    }
+
+    .note p {
+        font-size: 1em; /* Adjust for smaller screens */
+    }
+
+    form.create-note button {
+        bottom: -12px;
+        right: 12px;
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    form.create-note {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .note-header h1 {
+        font-size: 0.9em;
+    }
+
+    .note p {
+        font-size: 0.9em;
+    }
+
+    form.create-note button {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+/* Animation for new notes */
+@keyframes slideIn {
+    from {
+        transform: translateY(20px); /* Start from below */
+        opacity: 0; /* Start hidden */
+    }
+    to {
+        transform: translateY(0); /* End at normal position */
+        opacity: 1; /* End visible */
+    }
+}
+
+.note.adding {
+    animation: slideIn 0.3s ease; /* Apply animation to new notes */
+}
