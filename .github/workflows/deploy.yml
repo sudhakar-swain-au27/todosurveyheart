@@ -24,7 +24,7 @@ jobs:
       - name: Build the app
         run: npm run build
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pagesx
         uses: peaceiris/actions-gh-pages@v4 
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
