@@ -20,4 +20,4 @@ A simple Todo List application built with React and Redux. This app allows users
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/todo-list-app.git
+   git clone https://github.com/sudhakar-swain-au27/todosurveyheart.git
