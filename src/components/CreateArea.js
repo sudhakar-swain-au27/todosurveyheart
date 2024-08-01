@@ -17,9 +17,12 @@ function CreateArea(props) {
     setNote({
       content: value
     });
+
+    setExpanded(false);
   }
 
   function submitNote(event) {
+    event.preventDefault();
     if (note.content.trim() !== "") {
       props.onAdd(note);
       setNote({
@@ -40,7 +43,7 @@ function CreateArea(props) {
           name="content"
           onClick={expand}
           onChange={handleChange}
-          value={note.title}
+          value={note.content}
           placeholder="Take a note..."
           autoFocus
         />
