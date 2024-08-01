@@ -8,22 +8,22 @@ function CreateArea(props) {
   const [isExpanded, setExpanded] = useState(false);
 
   const [note, setNote] = useState({
-    title: ""
+    content: ""
   });
 
   function handleChange(event) {
     const { value } = event.target;
 
     setNote({
-      title: value
+      content: value
     });
   }
 
   function submitNote(event) {
-    if (note.title.trim() !== "") {
+    if (note.content.trim() !== "") {
       props.onAdd(note);
       setNote({
-        title: ""
+        content: ""
       });
     }
     event.preventDefault();
@@ -37,7 +37,7 @@ function CreateArea(props) {
     <div>
       <form className="create-note">
         <input
-          name="title"
+          name="content"
           onClick={expand}
           onChange={handleChange}
           value={note.title}

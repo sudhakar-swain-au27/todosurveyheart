@@ -22,7 +22,7 @@ function App() {
   const handleAddNote = (newNote) => {
     dispatch(addTodo({
       id: todos.length ? todos[0].id + 1 : 1, 
-      todo: newNote.title,
+      todo: newNote.content,
     }));
   };
 
@@ -30,8 +30,8 @@ function App() {
     dispatch(deleteTodo(id));
   };
 
-  const handleEditNote = (id, title) => {
-    dispatch(updateTodo({ id, todo: title }));
+  const handleEditNote = (id, content) => {
+    dispatch(updateTodo({ id, todo: content }));
   };
 
   if (status === 'loading') {
@@ -50,7 +50,7 @@ function App() {
         <Note
           key={todo.id}
           id={todo.id}
-          title={todo.todo}
+          content={todo.todo}
           onDelete={handleDeleteNote}
           onEdit={handleEditNote}
         />
